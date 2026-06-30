@@ -1,0 +1,33 @@
+https://flask.palletsprojects.com/en/stable/installation/#python-version
+https://flask.palletsprojects.com/en/stable/
+https://flask.palletsprojects.com/en/stable/quickstart/#routing
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-Comandos-
+ubuntu (linux)
+actualizamos sistema 
+
+tenemos que intalar venv y activarlo
+
+
+
+# Instala Flask y psycopg2
+pip install flask
+
+--es para PostgreSQL
+pip install flask psycopg2-binary
+
+python3 app.py  ---para inicalizar 
+
