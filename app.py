@@ -4,6 +4,10 @@ import psycopg2.extras;
 
 app = Flask(__name__)
 
+def get_cursor():
+    conn = get_db_connection
+    cur = conn.cursor()
+    return conn, cur
 
 # Configuración de la base de datos
 DB_CONFIG = {
@@ -13,6 +17,7 @@ DB_CONFIG = {
     'password': '1234'
 }
 
+#Configuracion de la Bases de Datos
 def get_db_connection():
     """Establece conexión con PostgreSQL"""
     conn = psycopg2.connect(**DB_CONFIG)
@@ -30,7 +35,7 @@ def index():
 #    return "¡Hola Mundo desde Flask en Ubuntu!"
 #------------------------------------------------------
 
-
+#API: Obtiene todos lso elementos
 @app.route('/api/elementos')
 def get_elementos():
     try:
@@ -63,6 +68,41 @@ def get_elementos():
     
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+
+#API: Obtener un elemento especifico
+
+@app.route('/app/elemento/<int:numero_atomico>')
+def get_elemento(numero_atomico):
+    try:
+        conn, cur = get_cursor()
+
+        cur.execute("""
+            SELECT 
+                e.*,
+                c.nombre as categoria,
+                c.color_hex,
+                es.nombre as estado,
+                b.letra as bloque
+            FROM elementos e
+            JOIN categorias c ON e.categoria_id = c.id
+            JOIN estados es ON e.estado_id = es.id
+            JOIN bloques b ON e.bloque_id = b.id
+            WHERE e.numero_atomico = %s
+        """, (numero_atomico,))
+        
+        elemento = cur.fetchone()
+        cur.close()
+        conn.close()
+        
+        if elemento:
+            return jsonify(elemento)
+        else:
+            return jsonify({'error': 'Elemento no encontrado'}), 404
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000)
