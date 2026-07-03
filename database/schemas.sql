@@ -17,25 +17,25 @@ CREATE TABLE "Tabla_Elementos".elementos(
 	año_descubrimiento INT
 );
 
-SELECT * FROM Tabla_Elementos.elementos;
+SELECT * FROM "Tabla_Elementos".elementos;
 
 
 -- Categorías de elementos
-CREATE TABLE categorias (
-    id PRIMARY KEY SERIAL,
+CREATE TABLE "Tabla_Elementos".categorias (
+    id SERIAL PRIMARY KEY,
     nombre VARCHAR(30) NOT NULL UNIQUE, -- 'Metal alcalino', 'Gas noble', etc.
     descripcion TEXT
 );
 
 -- Estados de la materia
-CREATE TABLE estados (
-    id PRIMARY KEY SERIAL,
+CREATE TABLE "Tabla_Elementos".estados (
+    id SERIAL PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL UNIQUE -- 'Sólido', 'Líquido', 'Gas', 'Desconocido'
 );
 
 -- Tipos de orbitales
-CREATE TABLE bloques (
-    id PRIMARY KEY SERIAL,
+CREATE TABLE "Tabla_Elementos".bloques (
+    id SERIAL PRIMARY KEY,
     letra CHAR(1) NOT NULL UNIQUE -- 's', 'p', 'd', 'f'
 );
 
