@@ -1,4 +1,4 @@
-from flask import Flask, jsonify,request ,render_template;
+from flask import Flask, jsonify,request ,send_from_directory;
 import psycopg2;
 import psycopg2.extras;
 
@@ -27,7 +27,7 @@ def get_db_connection():
 #Ruta Principal -- Sirve el HTML
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return send_from_directory(".", "index.html")
 
 #------------------------------------------------------
 #@app.route("/")
@@ -39,8 +39,7 @@ def index():
 @app.route('/api/elementos')
 def get_elementos():
     try:
-        conn = get_db_connection()
-        cur = conn.cursor()
+        conn, cur = get_cursor()
 
         cur.execute("""
             SELECT
@@ -103,6 +102,33 @@ def get_elemento(numero_atomico):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+#API: Filtrar por categoria
+
+@pp.route('/api/elementos/categoria/<categoria>')
+def get_elementos_por_categoria(categoria):
+    try:
+        conn, cur = get_cursor()
+
+        cur.execute("""
+            SELECT
+                e.numero_atomico,
+                e.simbolo,
+                e.nombre,
+                e.masa_atomica,
+                c.nombre as categoria,
+            FROM elementos e
+            JOIN categorias c ON e.categoria_id = c.id
+            WHERE c.nombre = %s
+            ORDER BY e.numero_atomico
+         """, (categoria,))
+        
+        elementos = cur.fetchall()
+        cur.close()
+        conn.close()
+
+        return jsonify(elementos)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, port=4000)

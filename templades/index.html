@@ -1,15 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-MX">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="txt/css" href="/static/css/style.css" />
     <title>Tabla periodica</title>
-</head>
-<body>
-    <h1> Tabla Periódica de los Elementos</h1>
-    
+  </head>
+  <body>
+    <h1>Tabla Periódica de los Elementos</h1>
+    <!-- Contenedor de la tabla periódica -->
+    <div id="tabla" class="tabla-container"></div>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
+    <script src="/static/js/main.js"></script>
+  </body>
 </html>
