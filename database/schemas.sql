@@ -1,4 +1,5 @@
-SET search_path TO Tabla_Elementos;
+SET search_path TO "Tabla_Elementos";
+
 SHOW search_path;
 
 SELECT schema_name
