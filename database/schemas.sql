@@ -16,7 +16,7 @@ CREATE TABLE "Tabla_Elementos".elementos(
 	radio_atomico INT,
 	estado_oxidacion VARCHAR(20),
 	año_descubrimiento INT
-);
+);	
 
 SELECT * FROM "Tabla_Elementos".elementos;
 
