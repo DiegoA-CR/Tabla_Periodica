@@ -35,6 +35,9 @@ def index():
 #    return "¡Hola Mundo desde Flask en Ubuntu!"
 #------------------------------------------------------
 
+##
+#----> MODIFICAR 
+##-
 #API: Obtiene todos lso elementos
 @app.route('/api/elementos')
 def get_elementos():
@@ -104,7 +107,7 @@ def get_elemento(numero_atomico):
 
 #API: Filtrar por categoria
 
-@pp.route('/api/elementos/categoria/<categoria>')
+@app.route('/api/elementos/categoria/<categoria>')
 def get_elementos_por_categoria(categoria):
     try:
         conn, cur = get_cursor()

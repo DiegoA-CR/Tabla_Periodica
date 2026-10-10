@@ -14,133 +14,105 @@ INSERT INTO "Tabla_Elementos".categorias (nombre) VALUES
 INSERT INTO "Tabla_Elementos".estados (nombre) VALUES 
 ('Sólido'), ('Líquido'), ('Gaseoso'), ('Desconocido');
 
--- Insertar elementos
-INSERT INTO "Tabla_Elementos".elementos (
-    numero_atomico, 
-    simbolo,
-    nombre, 
-    masa_atomica, 
-    categoria_id,
-    estado_id,
-    periodo,
-    grupo)
+-- Vamos a modificar la estructura de la DB
 
-VALUES 
-(1, 'H', 'Hidrógeno', 1.008, 3, 3, 1, 1),
-(2, 'He', 'Helio', 4.0026, 2, 3, 1, 18),
-(3, 'Li', 'Litio', 6.94, 1, 1, 2, 1);
-(4, 'Be', 'Berilio', 1.008, 3, 3, 1, 1),
-(5, 'B', 'Boro', 10.811, , , 2, 13),
-(6, 'C', 'Carbono', 12,01115, , , 2, 14),
-(7, 'N', 'Nitrógeno', 14,0067, , , 2,15),
-(8, 'O', 'Oxígeno', 15,9994, , ,2,16),
-(9, 'F', 'Flúor', 18,9984, , ,2,17),
-(10, 'Ne', 'Neón', 20,179, , ,2,18),
-(11, 'Na', 'Sodio', 22,9898, , ,3,1),
-(12, 'Mg', 'Magnesio', 24,305, , ,3,2),
-(13, 'Al', 'Aluminio', 26,9815, , ,3,13),
-(14, 'Si', 'Silicio', 28,086, , ,3,14),
-(15, 'P', 'Fósforo', 30,9738, , ,3,15),
-(16, 'S', 'Azufre', 32,064, , ,3,16),
-(17, 'Cl', 'Cloro', 35,453, , ,3,17),
-(18, 'Ar', 'Argón', 39,948, , ,3,18),
-(19, 'K', 'Potasio', 39,098, , ,4,1),
-(20, 'Ca', 'Calcio', 40,08, , ,4,2),
-(21, 'Sc', 'Escandio', 44,956, , ,4,3),
-(22, 'Ti', 'Titanio', 47,90, , ,4,4),
-(23, 'V', 'Vanadio', 50,942, , ,4,5),
-(24, 'Cr', 'Cromo', 51,996, , ,4,6),
-(25, 'Mn', 'Manganeso', 54,938, , ,4,7),
-(26, 'Fe', 'Hierro', 55,847, , ,4,8),
-(27, 'Co', 'Cobalto', 58,933, , ,4,9),
-(28, 'Ni', 'Niquel', 58,71, , ,4,10),
-(29, 'Cu', 'Cobre', 63,546, , ,4,11),
-(30, 'Zn', 'Zinc', 65,37, , ,4,12),
-(31, 'Ga', 'Galio', 69.723, , ,4,13),
-(32, 'Ge', 'Germanio', 72,59, , ,4,14),
-(33, 'As', 'Arsénico', 74,922, , ,4,15),
-(34, 'Se', 'Selenio', 78,96, , ,4,16),
-(35, 'Br', 'Bromo', 79,909, , ,4,17),
-(36, 'Kr', 'Kriptón', 83,80, , ,4,18),
-(37, 'Rb', 'Rubidio', 85,47, , ,5,1),
-(38, 'Sr', 'Estroncio', 87,62, , ,5,2),
-(39, 'Y', 'Itrio', 88,906, , ,5,3),
-(40, 'Zr', 'Circonio', 91,22, , ,5,4),
-(41, 'Nb', 'Niobo', 92,906, , ,5,5),
-(42, 'Mo', 'Molibdeno', 95,94, , ,5,6),
-(43, 'Tc', 'Tecnecio', 97,00, , ,5,7),
-(44, 'Ru', 'Rutenio', 101,07, , ,5,8),
-(45, 'Rh', 'Rodio', 102,905, , ,5,9),
-(46, 'Pd', 'Paladio', 106,4, , ,5,10),
-(47, 'Ag', 'Plata', 107,87, , ,5,11),
-(48, 'Cd', 'Cadmio', 112.414, , ,5,12),
-(49, 'In', 'Indio', 114.818, , ,5,13),
-(50, 'Sn', 'Estaño', 118.710, , ,5,14),
-(51, 'Sb', 'Antimonio', 121.760, , ,5,15),
-(52, 'Te', 'Telurio', 127,60, , ,5,16),
-(53, 'I', 'Yodo', 126,904, , ,5,17),
-(54, 'Xe', 'Xenón',131.293, , ,5,18),
-(55, 'Cs', 'Cesio', 132.905, , ,6,1),
-(56, 'Ba', 'Bario', 137.327, , ,6,2),
-(57, 'La', 'Lantano', 138.905, , ,6,3),
-(58, 'Ce', 'Cerio', 140.116, , ,6,3),
-(59, 'Pr', 'Praseodimio', 140,907, , ,6,3),
-(60, 'Nd', 'Neodimio', 144.242, , ,6,3),
-(61, 'Pm', 'Prometio', 147.00, , ,6,3),
-(62, 'Sm', 'Samario', 150,35, , ,6,3),
-(63, 'Eu', 'Europio', 151.964, , ,6,3),
-(64, 'Gd', 'Gadolinio', 157,25, , ,6,3),
-(65, 'Tb', 'Terbio', 158.925 , , ,6,3),
-(66, 'Dy', 'Disprosio', 162.500, , ,6,3),
-(67, 'Ho', 'Holmio',164,930, , ,6,3),
-(68, 'Er', 'Erbio',167.259, , ,6,3),
-(69, 'Tm', 'Tulio', 168,934, , ,6,3),
-(70, 'Yb', 'Iterbio', 173.054, ,6,3),
-(71, 'Lu', 'Lutecio', 174.966, , ,6,3),
-(72, 'Hf', 'Hafnio', 178,49, , ,6,4),
-(73, 'Ta', 'Tántalo', 180,948, , ,6,5),
-(74, 'W', 'Wolframio', 183,85, , ,6,6),
-(75, 'Re', 'Renio', 186.207, , ,6,7),
-(76, 'Os', 'Osmio', 186.207, , ,6,8),
-(77, 'Ir', 'Iridio', 192.217, , ,6,9),
-(78, 'Pt', 'Platino', 195.084, , ,6,10),
-(79, 'Au', 'Oro', 196.966, , ,6,11),
-(80, 'Hg', 'Mercurio', 200.592, , ,6,12),
-(81, 'Ti', 'Talio', 204,37, , ,6,13),
-(82, 'Pb', 'Plomo', 207,19, , ,6,14),
-(83, 'Bi', 'Bismuto', 208,980, , ,6,15),
-(84, 'Po', 'Polonio', 210, , ,6,16),
-(85, 'At', 'Astato', 210, , ,6,17),
-(86, 'Rn', 'Radón', 222, , ,6,18),
-(87, 'Fr', 'Francio', 223, , ,7,1),
-(88, 'Ra', 'Radio', 226, , ,7,2),
-(89, 'Ac', 'Actinio', 227, , ,7,3),
-(90, 'Th', 'Torio', 232.037, , ,7,3),
-(91, 'Pa', 'Protactinio', 231.035, , ,7,3),
-(92, 'U', 'Uranio', 238.028, , ,7,3),
-(93, 'Np', 'Neptunio', 237, , ,7,3)
-(94, 'Pu', 'Plutonio', 242, , ,7,3),
-(95, 'Am', 'Americio', 243, , ,7,3),
-(96, 'Cm', 'Curio', 247, , ,7,3),
-(97, 'Bk', 'Berkelio', 247, , ,7,3),
-(98, 'Cf', 'Californio', 251, , ,7,3),
-(99, 'Es', 'Einstenio', 254, , ,7,3),
-(100, 'Fm', 'Fermio', 257, , ,7,3),
-(101, 'Md', 'Mendelevio', 258, , ,7,3),
-(102, 'No', 'Nobelio', 259, , ,7,3),
-(103, 'Lr', 'Lawrencio', 262, , ,7,3),
-(104, 'Rf', 'Rutherfordio', 261, , ,7,4),
-(105, 'Db', 'Dubnio', 262, , ,7,5),
-(106, 'Sg', 'Seaborgio', 263, , ,7,6),
-(107, 'Bh', 'Bohrio', 262, , ,7,7),
-(108, 'Hs', 'Hasio', 265, , ,7,8),
-(109, 'Mt', 'Meitnerio', 266, , ,7,9),
-(110, 'Ds', 'Darmstatio', 268.8, , ,7,10),
-(111, 'Rg', 'Roentgenio', 282, , ,7,11),
-(112, 'Cn', 'Copernicio', 277, , ,7,12),
-(113, 'Nh', 'Nihonio', 286, , ,7,13),
-(114, 'Fl', 'Flerovio', 289, , ,7,14),
-(115, 'Mc', 'Moscovio', 288, , ,7,15),
-(116, 'Lv', 'Livermorio', 293, , ,7,16),
-(117, 'Ts', 'Teneso', 294, , ,7,17),
-(118, 'Og', 'Oganessón', 294, , ,7,18);
+modificación de tabla
+------------------------------------------------------
+-- agegamos las letras de los elementos
+INSERT INTO "Tabla_Elementos".bloques (letra)
+VALUES
+    ('s'),
+    ('p'),
+    ('d'),
+    ('f');
+-- verificamos los valores agregados 
+SELECT *
+FROM "Tabla_Elementos".bloques
+ORDER BY id;
+
+------------------------------------------------------
+
+ALTER TABLE "Tabla_Elementos".elementos
+ADD COLUMN id_categoria INT,
+ADD COLUMN id_estado INT,
+ADD COLUMN id_bloque INT;
+
+------------------------------------------------------
+ALTER TABLE "Tabla_Elementos".elementos
+ADD COLUMN id_categoria INT,
+ADD COLUMN id_estado INT,
+ADD COLUMN id_bloque INT;
+
+------------------------------------------------------
+ALTER TABLE "Tabla_Elementos".elementos
+ADD CONSTRAINT fk_elementos_categoria
+    FOREIGN KEY (id_categoria)
+    REFERENCES "Tabla_Elementos".categorias(id),
+
+ADD CONSTRAINT fk_elementos_estado
+    FOREIGN KEY (id_estado)
+    REFERENCES "Tabla_Elementos".estados(id),
+
+ADD CONSTRAINT fk_elementos_bloque
+    FOREIGN KEY (id_bloque)
+    REFERENCES "Tabla_Elementos".bloques(id);
+
+-- comprobamos los cambios
+
+SELECT
+    column_name,
+    data_type,
+    is_nullable
+FROM information_schema.columns
+WHERE table_schema = 'Tabla_Elementos'
+  AND table_name = 'elementos'
+ORDER BY ordinal_position;
+
+-- comprobamos claves foraneas
+
+SELECT
+    constraint_name,
+    constraint_type
+FROM information_schema.table_constraints
+WHERE table_schema = 'Tabla_Elementos'
+  AND table_name = 'elementos'
+ORDER BY constraint_type, constraint_name;
+-------------------------------------------------
+----------------------------------------------------
+--creamos una tabla para los estados de oxidacion
+
+CREATE TABLE "Tabla_Elementos".estados_oxidacion (
+    id_estado_oxidacion SERIAL PRIMARY KEY,
+    valor INT NOT NULL UNIQUE
+);
+--creamos una tabla intermedia
+
+CREATE TABLE "Tabla_Elementos".elemento_estado_oxidacion (
+    id_elemento INT NOT NULL,
+    id_estado_oxidacion INT NOT NULL,
+
+    PRIMARY KEY (id_"bloques"
+"categorias"
+"elemento_estado_oxidacion"
+"elementos"
+"estados"
+"estados_oxidacion"elemento, id_estado_oxidacion),
+
+    FOREIGN KEY (id_elemento)
+        REFERENCES "Tabla_Elementos".elementos(id_elemento),
+
+    FOREIGN KEY (id_estado_oxidacion)
+        REFERENCES "Tabla_Elementos".estados_oxidacion(id_estado_oxidacion)
+);
+------------------------------------------
+--eliminamos la columna de estado de oxidacion antigua
+ALTER TABLE "Tabla_Elementos".elementos
+DROP COLUMN estado_oxidacion;
+-----------------------------------------
+--comprobamos
+SELECT
+    table_name
+FROM information_schema.tables
+WHERE table_schema = 'Tabla_Elementos'
+  AND table_type = 'BASE TABLE'
+ORDER BY table_name;
