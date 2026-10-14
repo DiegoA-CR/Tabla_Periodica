@@ -4,7 +4,8 @@ https://flask.palletsprojects.com/en/stable/quickstart/#routing
 https://www.postgresql.org/docs/
 https://www.youtube.com/watch?v=gEJcMrk3E-Q&list=PLgqdACsQ8US2DCzQVrdZDZCTtTFHMY0as&index=18
 https://www.w3schools.com/postgresql/index.php
---Se utilizaron modelos de IA para la explicaion, comprension y practicas de funcionalidad
+--Se utilizaron modelos de IA para la explicación, comprensión 
+y practicas de funcionalidad así como facilitar la búsqueda de la información de los elementos, se corroborara la información
 https://www.ibm.com/docs/es/db2/11.5.x?topic=databases-designing
 https://www.fdi.ucm.es/profesor/fernan/MTIG_/Pr%C3%A1ct.%202.%20Dise%C3%B1o.pdf
 
